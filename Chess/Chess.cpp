@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include <utility>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
+   std::cout << "test";
    system("pause");
-   std::cout << "Hello World!\n";
 }
 
-// I want to make it so that only CPiece can use CPostion. How can I do this?
 class CPosition
 {
    CPosition(int iHorizontal, char chVirtical)
@@ -26,12 +26,31 @@ private:
    char m_chVirticalLocation;
 };
 
+// I want to make it so that only CPiece can use and knows about EPiece because no one else need to know. How can I do this?
+enum class EPieceType
+{
+   Pawn,
+   Kinght,
+   Bishop,
+   Rook,
+   Queen,
+   King
+};
+
 class CPiece
 {
 public:
    void Move(CPosition vNewPosition) { m_vPosition = vNewPosition; }
 
-   string m_type;
+   EPieceType m_eType;
    CPosition m_vPosition;
+};
 
+class CBoard
+{
+public:
+   void DisplayBoard();
+
+private:
+   vector<vector<int>> aBoard;
 };
