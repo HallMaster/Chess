@@ -13,9 +13,9 @@ int main()
    system("pause");
 }
 
-class CPosition
+class CLocation
 {
-   CPosition(int iHorizontal, char chVirtical)
+   CLocation(int iHorizontal, char chVirtical)
    {
       m_iHorizontalLocation = iHorizontal;
       m_chVirticalLocation = chVirtical;
@@ -26,7 +26,7 @@ private:
    char m_chVirticalLocation;
 };
 
-// I want to make it so that only CPiece can use and knows about EPiece because no one else need to know. How can I do this?
+// I want to make it so that only CPiece can use and knows about EPiece because no one else needs to know. How can I do this?
 enum class EPieceType
 {
    Pawn,
@@ -40,17 +40,50 @@ enum class EPieceType
 class CPiece
 {
 public:
-   void Move(CPosition vNewPosition) { m_vPosition = vNewPosition; }
+   void Move(CLocation vNewLocation) { m_vLocation = vNewLocation; }
 
    EPieceType m_eType;
-   CPosition m_vPosition;
+   CLocation m_vLocation;
 };
 
 class CBoard
 {
 public:
+   CBoard();
+   void Initialize();
    void DisplayBoard();
 
 private:
-   vector<vector<int>> aBoard;
+   vector<vector<int>> aaiBoard;
+};
+
+void CBoard::Initialize()
+{
+   // Just pawns for now.
+   // A2 == 0, 1
+
+   vector<int> aColumn = aaiBoard.at(0);
+}
+
+class CPlayer
+{
+public:
+   string m_sName;
+   vector<CPiece> m_aPieces;
+};
+
+enum class ETurn
+{
+   White,
+   Black,
+   Niether
+};
+
+class CGame
+{
+public:
+   CPlayer m_vPlayerOne;
+   CPlayer m_vPlayerTwo;
+   CBoard m_vBoard;
+   ETurn m_eTurn;
 };
