@@ -4,14 +4,9 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <array>
 
 using namespace std;
-
-int main()
-{
-   std::cout << "test";
-   system("pause");
-}
 
 class CLocation
 {
@@ -51,19 +46,13 @@ class CBoard
 public:
    CBoard();
    void Initialize();
+   
+   // Just display a board.
    void DisplayBoard();
 
 private:
-   vector<vector<int>> aaiBoard;
+   array<array<int, 8>, 8> m_aaiBoard;
 };
-
-void CBoard::Initialize()
-{
-   // Just pawns for now.
-   // A2 == 0, 1
-
-   vector<int> aColumn = aaiBoard.at(0);
-}
 
 class CPlayer
 {
@@ -87,3 +76,11 @@ public:
    CBoard m_vBoard;
    ETurn m_eTurn;
 };
+
+int main()
+{
+
+   
+   std::cout << "test";
+   system("pause");
+}

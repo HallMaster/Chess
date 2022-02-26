@@ -1,4 +1,1 @@
-﻿  Chess.cpp
-C:\Learning\GitHub\Chess\Chess\Chess.cpp(13,34): error C2027: use of undefined type 'EPieceType'
-C:\Learning\GitHub\Chess\Chess\Chess.cpp(9): message : see declaration of 'EPieceType'
-C:\Learning\GitHub\Chess\Chess\Chess.cpp(13,40): error C2065: 'Kinght': undeclared identifier
+﻿  Chess.vcxproj -> C:\Learning\GitHub\Chess\Chess\Debug\Chess.exe
